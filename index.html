@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noetra — AI-Powered Sales Training That Actually Works</title>
+    <meta name="description" content="Noetra uses AI to coach every sales rep on every call. Stop guessing, start growing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+<!-- Password Gate -->
+<div id="password-gate" class="gate">
+    <div class="gate-inner">
+        <div class="gate-logo">N</div>
+        <h2>Welcome to Noetra</h2>
+        <p>Enter the access code to continue.</p>
+        <form id="gate-form">
+            <input type="password" id="gate-input" placeholder="Access code" autocomplete="off" autofocus>
+            <button type="submit">Enter</button>
+        </form>
+        <p id="gate-error" class="gate-error"></p>
+    </div>
+</div>
+
+<!-- Main Site -->
+<div id="site" class="site-hidden">
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+    <div class="nav-inner container">
+        <a href="#" class="nav-logo">
+            <span class="logo-mark">N</span>
+            <span class="logo-text">Noetra</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="https://noetra-sales-trainer-fi3ma.ondigitalocean.app/signup" class="btn btn-sm">Start Free Trial</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-badge">🚀 Now in Early Access</div>
+        <h1>AI-Powered Sales Training<br><span class="text-accent">That Actually Works</span></h1>
+        <p class="hero-sub">Noetra listens to every sales call, identifies what's working, and delivers personalized coaching to every rep — automatically. No more guessing who needs help or what to fix.</p>
+        <div class="hero-ctas">
+            <a href="https://noetra-sales-trainer-fi3ma.ondigitalocean.app/signup" class="btn btn-primary btn-lg">Start Free Trial →</a>
+            <a href="#how-it-works" class="btn btn-ghost btn-lg">See How It Works</a>
+        </div>
+        <div class="hero-proof">
+            <div class="hero-stat">
+                <strong>3x</strong>
+                <span>Faster rep ramp-up</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <strong>100%</strong>
+                <span>Call coverage</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <strong>0</strong>
+                <span>Extra manager hours</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-glow"></div>
+</section>
+
+<!-- Problem -->
+<section class="problem" id="problem">
+    <div class="container">
+        <div class="section-label">The Problem</div>
+        <h2>Sales coaching is broken.<br>Here's why.</h2>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">🎧</div>
+                <h3>Managers can't listen to every call</h3>
+                <p>The average sales manager oversees 8-12 reps. They hear maybe 2% of actual calls. The other 98%? Completely uncoached.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🎲</div>
+                <h3>Coaching is inconsistent</h3>
+                <p>Different managers, different feedback. New hires get one style, veterans get another — or none at all. There's no standard, no system.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">💸</div>
+                <h3>Training doesn't stick</h3>
+                <p>Companies spend $20B+ a year on sales training. Reps forget 87% within 30 days. One-off workshops don't change behavior — daily reinforcement does.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <div class="section-label">How It Works</div>
+        <h2>Three steps to a coaching machine</h2>
+        <p class="section-sub">Set it up once. Noetra does the rest — every call, every rep, every day.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="#4361ee" stroke-width="2"/><circle cx="24" cy="24" r="8" fill="#4361ee"/><rect x="22" y="4" width="4" height="8" rx="2" fill="#4361ee"/></svg>
+                </div>
+                <h3>Record</h3>
+                <p>Connect your calls — Zoom, Dialpad, RingCentral, or upload directly. Noetra captures and transcribes everything with speaker identification.</p>
+            </div>
+            <div class="step-arrow">
+                <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h32m0 0l-8-8m8 8l-8 8" stroke="#4361ee" stroke-width="2" fill="none"/></svg>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="4" stroke="#4361ee" stroke-width="2"/><circle cx="18" cy="24" r="4" fill="#4361ee"/><circle cx="30" cy="24" r="4" fill="#4361ee"/><path d="M18 32c0-2 2-3 6-3s6 1 6 3" stroke="#4361ee" stroke-width="2"/></svg>
+                </div>
+                <h3>AI Coaches</h3>
+                <p>Our AI analyzes every conversation against your custom sales process. It spots missed steps, weak objection handling, and winning patterns across your team.</p>
+            </div>
+            <div class="step-arrow">
+                <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h32m0 0l-8-8m8 8l-8 8" stroke="#4361ee" stroke-width="2" fill="none"/></svg>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M8 36V16l8-8h16l8 8v20l-8 8H16l-8-8z" stroke="#4361ee" stroke-width="2"/><path d="M18 28l4 4 8-10" stroke="#4361ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Teams Improve</h3>
+                <p>Reps get personalized daily coaching. Managers get leaderboards and reports. The whole team levels up — without anyone listening to a single call.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="features" id="features">
+    <div class="container">
+        <div class="section-label">Features</div>
+        <h2>Everything you need.<br>Nothing you don't.</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="11" cy="11" r="5" stroke="#4361ee" stroke-width="2"/><circle cx="21" cy="21" r="5" stroke="#4361ee" stroke-width="2"/><path d="M15 8l2-2m0 0l2 2m-2-2v8" stroke="#4361ee" stroke-width="2"/></svg>
+                </div>
+                <h3>Speaker Identification</h3>
+                <p>Noetra knows who's talking. It separates your rep from the prospect automatically — no manual tagging needed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="4" stroke="#4361ee" stroke-width="2"/><path d="M10 16h12M10 11h12M10 21h8" stroke="#4361ee" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Custom Sales Process</h3>
+                <p>Define your methodology — MEDDIC, BANT, Sandler, or your own. Noetra coaches reps against your specific playbook.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 24V12l4-6h12l4 6v12l-4 6H10l-4-6z" stroke="#4361ee" stroke-width="2"/><path d="M16 10v8m-4-4h8" stroke="#4361ee" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Leaderboards</h3>
+                <p>See who's crushing it and who needs help. Rank reps by coaching scores, improvement velocity, and adherence to process.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="24" height="20" rx="3" stroke="#4361ee" stroke-width="2"/><path d="M4 12h24" stroke="#4361ee" stroke-width="2"/><circle cx="9" cy="9" r="1" fill="#4361ee"/><circle cx="13" cy="9" r="1" fill="#4361ee"/></svg>
+                </div>
+                <h3>Daily Reports</h3>
+                <p>Wake up to a summary of yesterday's calls. Key wins, red flags, and exactly where to focus your attention today.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="9" y="4" width="14" height="24" rx="3" stroke="#4361ee" stroke-width="2"/><circle cx="16" cy="24" r="2" fill="#4361ee"/></svg>
+                </div>
+                <h3>Mobile-Friendly</h3>
+                <p>Review coaching insights from anywhere. The full Noetra experience works beautifully on phones and tablets.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 10h20M6 16h20M6 22h20" stroke="#4361ee" stroke-width="2" stroke-linecap="round"/><circle cx="26" cy="10" r="3" stroke="#4361ee" stroke-width="2"/><circle cx="26" cy="22" r="3" stroke="#4361ee" stroke-width="2"/></svg>
+                </div>
+                <h3>API Access</h3>
+                <p>Build Noetra into your stack. Push coaching data to your CRM, BI tools, or custom dashboards via our REST API.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <div class="section-label">Pricing</div>
+        <h2>Simple pricing that scales with you</h2>
+        <p class="section-sub">Start free. Upgrade when you're ready. No surprises.</p>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-tier">Starter</div>
+                <div class="pricing-price">
+                    <span class="pricing-amount">$0</span>
+                    <span class="pricing-period">/ month</span>
+                </div>
+                <p class="pricing-desc">Perfect for trying Noetra with a small team.</p>
+                <ul class="pricing-features">
+                    <li>Up to 3 reps</li>
+                    <li>50 calls / month</li>
+                    <li>Basic AI coaching</li>
+                    <li>Email reports</li>
+                    <li>Community support</li>
+                </ul>
+                <a href="https://noetra-sales-trainer-fi3ma.ondigitalocean.app/signup" class="btn btn-outline btn-block">Get Started Free</a>
+            </div>
+            <div class="pricing-card pricing-card-featured">
+                <div class="pricing-badge">Most Popular</div>
+                <div class="pricing-tier">Pro</div>
+                <div class="pricing-price">
+                    <span class="pricing-amount">$49</span>
+                    <span class="pricing-period">/ rep / month</span>
+                </div>
+                <p class="pricing-desc">For growing teams serious about coaching.</p>
+                <ul class="pricing-features">
+                    <li>Unlimited reps</li>
+                    <li>Unlimited calls</li>
+                    <li>Custom sales process</li>
+                    <li>Leaderboards & analytics</li>
+                    <li>Daily reports</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="https://noetra-sales-trainer-fi3ma.ondigitalocean.app/signup" class="btn btn-primary btn-block">Start Free Trial →</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-tier">Enterprise</div>
+                <div class="pricing-price">
+                    <span class="pricing-amount">Custom</span>
+                </div>
+                <p class="pricing-desc">For large teams with advanced needs.</p>
+                <ul class="pricing-features">
+                    <li>Everything in Pro</li>
+                    <li>SSO & SAML</li>
+                    <li>API access</li>
+                    <li>Custom integrations</li>
+                    <li>Dedicated success manager</li>
+                    <li>SLA guarantee</li>
+                </ul>
+                <a href="mailto:hello@gonoetra.ai" class="btn btn-outline btn-block">Contact Sales</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+    <div class="container container-narrow">
+        <div class="section-label">FAQ</div>
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    How does Noetra analyze my sales calls?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Noetra uses advanced AI to transcribe your calls, identify speakers, and analyze the conversation against your defined sales process. It evaluates things like discovery quality, objection handling, next-step setting, and more — then delivers specific, actionable coaching to each rep.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What call platforms do you integrate with?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We currently support Zoom, Dialpad, RingCentral, and direct audio upload. More integrations are coming soon — if you use a platform we don't support yet, reach out and we'll prioritize it.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I customize the coaching to match our sales methodology?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. Noetra lets you define your own sales process — whether that's MEDDIC, BANT, Sandler, Challenger, or something entirely custom. The AI coaches reps against your specific playbook, not generic best practices.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is my call data secure?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. All data is encrypted in transit and at rest. We use SOC 2 compliant infrastructure, and your recordings are never used to train models or shared with third parties. You can delete your data at any time.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    How long does it take to set up?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Most teams are up and running in under 15 minutes. Connect your call platform, define your sales process (we have templates), and invite your reps. Noetra starts coaching from the very first call.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What if I don't have a defined sales process yet?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No problem. Noetra comes with battle-tested sales process templates you can use out of the box. As you learn what works for your team, you can customize and refine your process over time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to coach every rep<br>on every call?</h2>
+        <p>Join the teams already using Noetra to build unstoppable sales organizations.</p>
+        <a href="https://noetra-sales-trainer-fi3ma.ondigitalocean.app/signup" class="btn btn-primary btn-lg">Start Free Trial →</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <span class="logo-mark">N</span>
+                    <span class="logo-text">Noetra</span>
+                </a>
+                <p>AI-powered sales training that actually works.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:hello@gonoetra.ai">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Noetra. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</div><!-- /site -->
+
+<script src="js/main.js"></script>
+</body>
+</html>
