@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Calculator — Noetra</title>
+    <meta name="description" content="Discover how much revenue Noetra can add to your sales team. Adjust the sliders to see your personalized ROI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* ROI Calculator Page Styles */
+        .roi-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+
+        .roi-hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .roi-hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .roi-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            padding: 40px 0 80px;
+        }
+
+        .roi-section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        /* Slider Cards */
+        .slider-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            margin-bottom: 16px;
+            transition: border-color var(--transition);
+        }
+
+        .slider-card:hover {
+            border-color: rgba(255,255,255,0.12);
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .slider-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .slider-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .slider-range {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Custom Range Slider */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: 2px solid var(--navy);
+            transition: background var(--transition);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: 2px solid var(--navy);
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: var(--accent-hover);
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            background: var(--accent-hover);
+        }
+
+        /* ROI Display */
+        .roi-main-display {
+            background: linear-gradient(135deg, var(--accent) 0%, #6366f1 100%);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .roi-main-display h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 8px;
+        }
+
+        .roi-main-number {
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .roi-main-sub {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+        }
+
+        .roi-main-sub strong {
+            color: var(--white);
+        }
+
+        /* Metric Cards */
+        .roi-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .metric-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .metric-value.green { color: #22c55e; }
+        .metric-value.orange { color: #fb923c; }
+        .metric-value.purple { color: #a78bfa; }
+
+        /* Chart Card */
+        .chart-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+        }
+
+        .chart-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* CTA Section */
+        .roi-cta {
+            padding: 80px 0 120px;
+            text-align: center;
+        }
+
+        .roi-cta-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-lg);
+            padding: 48px 32px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .roi-cta-box h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .roi-cta-box p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        /* Number animation */
+        .number-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .roi-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .roi-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-main-number {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Password Gate -->
+<div id="password-gate" class="gate">
+    <div class="gate-inner">
+        <div class="gate-logo">N</div>
+        <h2>Welcome to Noetra</h2>
+        <p>Enter the access code to continue.</p>
+        <form id="gate-form">
+            <input type="password" id="gate-input" placeholder="Access code" autocomplete="off" autofocus>
+            <button type="submit">Enter</button>
+        </form>
+        <p id="gate-error" class="gate-error"></p>
+    </div>
+</div>
+
+<!-- Main Site -->
+<div id="site" class="site-hidden">
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+    <div class="nav-inner container">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-mark">N</span>
+            <span class="logo-text">Noetra</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="roi-calculator.html">ROI Calculator</a>
+            <a href="index.html#faq">FAQ</a>
+            <a href="https://noetra-sales-trainer-fi3ma.ondigitalocean.app/signup" class="btn btn-sm">Start Free Trial</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="roi-hero">
+    <div class="container">
+        <div class="section-label">ROI Calculator</div>
+        <h1>See What Noetra Can Do<br><span class="text-accent">For Your Bottom Line</span></h1>
+        <p>Adjust the sliders below to match your team. Watch your ROI update in real time.</p>
+    </div>
+</section>
+
+<!-- Calculator -->
+<section class="container">
+    <div class="roi-layout">
+        <!-- Input Controls -->
+        <div>
+            <div class="roi-section-title">Your Team Details</div>
+
+            <div class="slider-card">
+                <div class="slider-header">
+                    <label class="slider-label" for="reps">Sales Reps</label>
+                    <span class="slider-value" id="reps-display">10</span>
+                </div>
+                <input type="range" id="reps" min="1" max="100" value="10">
+                <div class="slider-range"><span>1</span><span>100 reps</span></div>
+            </div>
+
+            <div class="slider-card">
+                <div class="slider-header">
+                    <label class="slider-label" for="deal-size">Avg Deal Size</label>
+                    <span class="slider-value" id="deal-size-display">$5,000</span>
+                </div>
+                <input type="range" id="deal-size" min="500" max="50000" value="5000" step="500">
+                <div class="slider-range"><span>$500</span><span>$50,000</span></div>
+            </div>
+
+            <div class="slider-card">
+                <div class="slider-header">
+                    <label class="slider-label" for="deals-per-rep">Deals / Rep / Month</label>
+                    <span class="slider-value" id="deals-per-rep-display">8</span>
+                </div>
+                <input type="range" id="deals-per-rep" min="1" max="30" value="8">
+                <div class="slider-range"><span>1</span><span>30 deals</span></div>
+            </div>
+
+            <div class="slider-card">
+                <div class="slider-header">
+                    <label class="slider-label" for="improvement">Expected Improvement</label>
+                    <span class="slider-value" id="improvement-display">10%</span>
+                </div>
+                <input type="range" id="improvement" min="5" max="30" value="10">
+                <div class="slider-range"><span>5%</span><span>30%</span></div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div>
+            <div class="roi-section-title">Your ROI Potential</div>
+
+            <div class="roi-main-display">
+                <h3>Monthly ROI</h3>
+                <div class="roi-main-number number-transition" id="main-roi">3,939%</div>
+                <p class="roi-main-sub">
+                    For every <strong>$1</strong> you spend on Noetra,<br>
+                    you get <strong id="roi-multiplier">$40</strong> back
+                </p>
+            </div>
+
+            <div class="roi-metrics">
+                <div class="metric-card">
+                    <div class="metric-label">Additional Deals/Month</div>
+                    <div class="metric-value number-transition" id="additional-deals">8</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Additional Monthly Revenue</div>
+                    <div class="metric-value green number-transition" id="additional-revenue">$40,000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Noetra Monthly Cost</div>
+                    <div class="metric-value orange number-transition" id="monthly-cost">$990</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Net Annual Gain</div>
+                    <div class="metric-value purple number-transition" id="annual-gain">$468,120</div>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>Monthly Cost vs Revenue Gain</h3>
+                <canvas id="roi-chart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="roi-cta">
+    <div class="container">
+        <div class="roi-cta-box">
+            <h3>Ready to Transform Your Sales Team?</h3>
+            <p>Start your free trial today and see these results for yourself. No credit card required.</p>
+            <a href="https://noetra-sales-trainer-fi3ma.ondigitalocean.app/signup" class="btn btn-primary btn-lg">Start Free Trial →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">
+                    <span class="logo-mark">N</span>
+                    <span class="logo-text">Noetra</span>
+                </a>
+                <p>AI-powered sales training that actually works.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="roi-calculator.html">ROI Calculator</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:hello@gonoetra.ai">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Noetra. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</div><!-- /site -->
+
+<script>
+// Password Gate (same as main site)
+(function() {
+    'use strict';
+    var PASS = 'noetra2026';
+    var STORAGE_KEY = 'noetra_access';
+    var gate = document.getElementById('password-gate');
+    var site = document.getElementById('site');
+    var form = document.getElementById('gate-form');
+    var input = document.getElementById('gate-input');
+    var error = document.getElementById('gate-error');
+
+    function unlock() {
+        gate.classList.add('gate-hidden');
+        site.classList.remove('site-hidden');
+        localStorage.setItem(STORAGE_KEY, 'granted');
+        initNav();
+        initCalculator();
+    }
+
+    if (localStorage.getItem(STORAGE_KEY) === 'granted') {
+        unlock();
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (input.value === PASS) {
+            unlock();
+        } else {
+            error.textContent = 'Incorrect access code. Try again.';
+            input.value = '';
+            input.focus();
+        }
+    });
+
+    function initNav() {
+        var toggle = document.getElementById('nav-toggle');
+        var links = document.getElementById('nav-links');
+        toggle.addEventListener('click', function() {
+            links.classList.toggle('active');
+        });
+        links.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                links.classList.remove('active');
+            });
+        });
+        var nav = document.getElementById('nav');
+        window.addEventListener('scroll', function() {
+            nav.style.background = window.scrollY > 50
+                ? 'rgba(26, 26, 46, 0.95)'
+                : 'rgba(26, 26, 46, 0.85)';
+        });
+    }
+})();
+
+// ROI Calculator Logic
+var animationId = null;
+var chart = null;
+
+function initCalculator() {
+    ['reps', 'deal-size', 'deals-per-rep', 'improvement'].forEach(function(id) {
+        document.getElementById(id).addEventListener('input', handleInputChange);
+    });
+    calculateROI();
+    updateChart();
+}
+
+function handleInputChange(e) {
+    var id = e.target.id;
+    var value = parseInt(e.target.value);
+    updateDisplayValue(id, value);
+    if (animationId) cancelAnimationFrame(animationId);
+    animationId = requestAnimationFrame(function() {
+        calculateROI();
+        updateChart();
+    });
+}
+
+function updateDisplayValue(id, value) {
+    var map = {
+        'reps': ['reps-display', value.toString()],
+        'deal-size': ['deal-size-display', formatCurrency(value)],
+        'deals-per-rep': ['deals-per-rep-display', value.toString()],
+        'improvement': ['improvement-display', value + '%']
+    };
+    var entry = map[id];
+    document.getElementById(entry[0]).textContent = entry[1];
+}
+
+function calculateROI() {
+    var reps = parseInt(document.getElementById('reps').value);
+    var dealSize = parseInt(document.getElementById('deal-size').value);
+    var dealsPerRep = parseInt(document.getElementById('deals-per-rep').value);
+    var improvement = parseInt(document.getElementById('improvement').value) / 100;
+
+    var additionalDeals = Math.round(reps * dealsPerRep * improvement);
+    var additionalRevenue = additionalDeals * dealSize;
+    var monthlyCost = reps * 99;
+    var monthlyROI = ((additionalRevenue - monthlyCost) / monthlyCost) * 100;
+    var annualGain = (additionalRevenue * 12) - (monthlyCost * 12);
+    var roiMultiplier = Math.round(additionalRevenue / monthlyCost);
+
+    animateNumber('additional-deals', additionalDeals);
+    animateNumber('additional-revenue', additionalRevenue, true);
+    animateNumber('monthly-cost', monthlyCost, true);
+    animateNumber('annual-gain', annualGain, true);
+    animateNumber('main-roi', monthlyROI, false, '%');
+    animateNumber('roi-multiplier', roiMultiplier, false, '', '$');
+}
+
+function animateNumber(elementId, targetValue, isCurrency, suffix, prefix) {
+    isCurrency = isCurrency || false;
+    suffix = suffix || '';
+    prefix = prefix || '';
+    var element = document.getElementById(elementId);
+    var currentText = element.textContent;
+    var currentValue;
+
+    if (isCurrency) {
+        currentValue = parseInt(currentText.replace(/[\$,]/g, '')) || 0;
+    } else if (suffix === '%') {
+        currentValue = parseFloat(currentText.replace('%', '')) || 0;
+    } else {
+        currentValue = parseInt(currentText.replace(/[\$,]/g, '')) || 0;
+    }
+
+    var difference = targetValue - currentValue;
+    var steps = 20;
+    var stepSize = difference / steps;
+    var step = 0;
+
+    function animate() {
+        if (step < steps) {
+            var value = currentValue + (stepSize * step);
+            var displayValue;
+            if (isCurrency) {
+                displayValue = formatCurrency(Math.round(value));
+            } else if (suffix === '%') {
+                displayValue = Math.round(value).toLocaleString() + suffix;
+            } else {
+                displayValue = prefix + Math.round(value).toLocaleString() + suffix;
+            }
+            element.textContent = displayValue;
+            step++;
+            requestAnimationFrame(animate);
+        } else {
+            if (isCurrency) {
+                element.textContent = formatCurrency(targetValue);
+            } else if (suffix === '%') {
+                element.textContent = Math.round(targetValue).toLocaleString() + suffix;
+            } else {
+                element.textContent = prefix + Math.round(targetValue).toLocaleString() + suffix;
+            }
+        }
+    }
+    animate();
+}
+
+function formatCurrency(amount) {
+    return '$' + amount.toLocaleString();
+}
+
+function updateChart() {
+    var reps = parseInt(document.getElementById('reps').value);
+    var dealSize = parseInt(document.getElementById('deal-size').value);
+    var dealsPerRep = parseInt(document.getElementById('deals-per-rep').value);
+    var improvement = parseInt(document.getElementById('improvement').value) / 100;
+
+    var additionalDeals = Math.round(reps * dealsPerRep * improvement);
+    var additionalRevenue = additionalDeals * dealSize;
+    var monthlyCost = reps * 99;
+
+    var ctx = document.getElementById('roi-chart').getContext('2d');
+    if (chart) chart.destroy();
+
+    chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Monthly Cost', 'Revenue Gain'],
+            datasets: [{
+                data: [monthlyCost, additionalRevenue],
+                backgroundColor: ['rgba(251, 146, 60, 0.8)', 'rgba(34, 197, 94, 0.8)'],
+                borderColor: ['rgb(251, 146, 60)', 'rgb(34, 197, 94)'],
+                borderWidth: 2,
+                borderRadius: 8,
+                borderSkipped: false
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) { return '$' + value.toLocaleString(); },
+                        color: '#94a3b8'
+                    },
+                    grid: { color: 'rgba(255,255,255,0.06)' }
+                },
+                x: {
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: 'rgba(255,255,255,0.06)' }
+                }
+            }
+        }
+    });
+}
+</script>
+</body>
+</html>
