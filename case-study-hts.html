@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Hot Tub Superstore — Noetra</title>
+    <meta name="description" content="How Hot Tub Superstore got AI sales coaching in 30 days with 48x ROI using Noetra.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+    <style>
+        .cs-hero { position: relative; padding: 140px 0 80px; text-align: center; overflow: hidden; }
+        .cs-back { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; margin-bottom: 24px; transition: color var(--transition); }
+        .cs-back:hover { color: var(--accent); }
+        .cs-hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; color: var(--white); margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .cs-hero-sub { font-size: 18px; color: var(--text-muted); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+        .cs-stats { padding: 48px 0; background: var(--navy-light); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .cs-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .cs-stat-card { text-align: center; padding: 28px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-lg); }
+        .cs-stat-card strong { display: block; font-size: 36px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; margin-bottom: 4px; }
+        .cs-stat-card span { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+        .cs-section { padding: 80px 0; }
+        .cs-section:nth-child(even) { background: var(--navy-light); }
+        .cs-section h2 { font-size: clamp(24px, 4vw, 36px); margin-bottom: 24px; }
+        .cs-content { max-width: 800px; }
+        .cs-content p { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+        .cs-content h3 { font-size: 20px; font-weight: 700; color: var(--white); margin: 32px 0 16px; }
+        .cs-arrows { list-style: none; margin: 24px 0; }
+        .cs-arrows li { padding: 10px 0; font-size: 16px; color: var(--text-muted); line-height: 1.7; display: flex; align-items: flex-start; gap: 12px; }
+        .cs-arrows li::before { content: '\2192'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+        .cs-steps { list-style: none; margin: 24px 0; counter-reset: step; }
+        .cs-steps li { counter-increment: step; padding: 16px 0 16px 48px; font-size: 16px; color: var(--text-muted); line-height: 1.7; position: relative; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .cs-steps li:last-child { border-bottom: none; }
+        .cs-steps li::before { content: counter(step); position: absolute; left: 0; top: 16px; width: 32px; height: 32px; background: rgba(67, 97, 238, 0.12); border: 1px solid rgba(67, 97, 238, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--accent); }
+        .cs-findings { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
+        .cs-finding { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-lg); padding: 28px 32px; }
+        .cs-finding h4 { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+        .cs-finding p { margin-bottom: 0; }
+        .cs-quote { border-left: 4px solid var(--accent); padding: 24px 32px; margin: 40px 0; background: rgba(67, 97, 238, 0.06); border-radius: 0 var(--radius) var(--radius) 0; }
+        .cs-quote p { font-size: 18px; font-style: italic; color: var(--text); margin-bottom: 12px; }
+        .cs-quote cite { font-size: 14px; color: var(--text-muted); font-style: normal; font-weight: 600; }
+        .cs-bullets { list-style: none; margin: 16px 0; }
+        .cs-bullets li { padding: 6px 0; font-size: 16px; color: var(--text-muted); line-height: 1.7; }
+        .cs-bullets li::before { content: '\2022'; color: var(--accent); font-weight: 700; margin-right: 10px; }
+        .cs-roi { text-align: center; padding: 48px 40px; margin: 40px 0; background: linear-gradient(135deg, rgba(67, 97, 238, 0.15) 0%, rgba(67, 97, 238, 0.05) 100%); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: var(--radius-lg); }
+        .cs-roi-number { font-size: clamp(48px, 8vw, 72px); font-weight: 800; color: var(--accent); letter-spacing: -0.03em; line-height: 1; }
+        .cs-roi-label { font-size: 18px; color: var(--white); font-weight: 600; margin: 8px 0 24px; }
+        .cs-roi-details { font-size: 16px; color: var(--text-muted); margin-bottom: 8px; }
+        .cs-roi-extra { font-size: 15px; color: var(--text-muted); font-style: italic; }
+        .cs-disclaimer { font-size: 13px !important; color: var(--gray-400) !important; margin-top: 32px !important; font-style: italic; }
+        .cs-cta { padding: 100px 0; text-align: center; background: var(--navy); position: relative; overflow: hidden; }
+        .cs-cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); pointer-events: none; }
+        .cs-cta h2 { position: relative; }
+        .cs-cta p { color: var(--text-muted); font-size: 18px; margin-bottom: 32px; position: relative; }
+        .cs-cta .btn { position: relative; }
+        @media (max-width: 768px) {
+            .cs-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .cs-stat-card strong { font-size: 28px; }
+            .cs-section { padding: 60px 0; }
+            .cs-finding { padding: 20px 24px; }
+            .cs-roi { padding: 32px 24px; }
+            .cs-quote { padding: 20px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+    <div class="nav-inner container">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-mark">N</span>
+            <span class="logo-text">Noetra</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="roi-calculator.html">ROI Calculator</a>
+            <a href="index.html#faq">FAQ</a>
+            <a href="https://noetra-sales-trainer-fi3ma.ondigitalocean.app/signup" class="btn btn-sm">Start Free Trial</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<section class="cs-hero">
+    <div class="container">
+        <a href="index.html" class="cs-back">&larr; Back to Noetra</a><br>
+        <div class="hero-badge">&#x1F4CB; Case Study</div>
+        <h1>How Hot Tub Superstore Got AI Sales Coaching in 30 Days</h1>
+        <p class="cs-hero-sub">A 5-person sales team went from zero coaching visibility to AI-powered performance tracking &mdash; with 48x ROI.</p>
+    </div>
+    <div class="hero-glow"></div>
+</section>
+
+<section class="cs-stats">
+    <div class="container">
+        <div class="cs-stats-grid">
+            <div class="cs-stat-card"><strong>60+</strong><span>Recordings</span></div>
+            <div class="cs-stat-card"><strong>5</strong><span>Sales Reps</span></div>
+            <div class="cs-stat-card"><strong>&lt;1 day</strong><span>Setup Time</span></div>
+            <div class="cs-stat-card"><strong>48x</strong><span>ROI</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section">
+    <div class="container">
+        <div class="cs-content">
+            <div class="section-label">The Company</div>
+            <h2>Hot Tub Superstore</h2>
+            <p>Hot Tub Superstore (HTS) is a retail hot tub dealership in the Phoenix, AZ metro area. Like most showroom-based sales teams, coaching happened informally &mdash; a manager might overhear a conversation, give a quick tip, and move on. There was no way to systematically review sales conversations, track improvement, or ensure every rep was getting coached.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section">
+    <div class="container">
+        <div class="cs-content">
+            <div class="section-label">The Challenge</div>
+            <h2>No visibility. No data. No system.</h2>
+            <ul class="cs-arrows">
+                <li>No visibility into what reps were actually saying to customers</li>
+                <li>Inconsistent coaching &mdash; feedback depended on who happened to be around</li>
+                <li>No performance data &mdash; managers couldn&rsquo;t track which reps were improving</li>
+                <li>Time constraints &mdash; the sales manager couldn&rsquo;t shadow every conversation</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section">
+    <div class="container">
+        <div class="cs-content">
+            <div class="section-label">The Solution</div>
+            <h2>Noetra &mdash; deployed in February 2026</h2>
+            <p>HTS deployed Noetra to their 5-person sales team in February 2026. Reps record customer conversations directly from their phones. Noetra transcribes the audio, identifies speakers, and runs AI coaching analysis against HTS&rsquo;s customized sales process.</p>
+            <h3>How It Works</h3>
+            <ol class="cs-steps">
+                <li>Rep opens Noetra on their phone &mdash; taps Record before a customer walk-up</li>
+                <li>Conversation is transcribed using Deepgram Nova-3 with speaker diarization</li>
+                <li>AI scores the interaction against the sales process &mdash; greeting, needs assessment, product knowledge, objection handling, close</li>
+                <li>Manager dashboard shows team-wide trends, individual rep progress, and recordings needing attention</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section">
+    <div class="container">
+        <div class="cs-content">
+            <div class="section-label">Key Findings</div>
+            <h2>What HTS discovered</h2>
+            <div class="cs-findings">
+                <div class="cs-finding">
+                    <h4>Immediate Coaching Visibility</h4>
+                    <p>For the first time, the sales manager could see every customer interaction &mdash; not just the ones they happened to overhear. AI scoring highlighted specific moments where reps excelled or missed opportunities.</p>
+                </div>
+                <div class="cs-finding">
+                    <h4>Rep-Level Performance Tracking</h4>
+                    <p>The manager dashboard revealed clear differences between reps. Some consistently scored high on greeting and rapport but low on closing. Others were strong closers but weak on needs assessment.</p>
+                </div>
+                <div class="cs-finding">
+                    <h4>Recording Compliance as a Leading Indicator</h4>
+                    <p>The activity heatmap and compliance tracking showed which reps were consistently recording (and improving) vs. which reps were avoiding the tool.</p>
+                </div>
+                <div class="cs-finding">
+                    <h4>Zero Workflow Disruption</h4>
+                    <p>Reps record from their existing phones. No new hardware. No special setup. The 30-second habit of tapping Record before a customer walk-up was the only behavior change required.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section">
+    <div class="container">
+        <div class="cs-content">
+            <div class="cs-quote">
+                <p>&ldquo;[Quote from Scott or HTS sales manager &mdash; to be added]&rdquo;</p>
+                <cite>&mdash; Sales Manager, Hot Tub Superstore</cite>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section">
+    <div class="container">
+        <div class="cs-content">
+            <div class="section-label">Why It Matters</div>
+            <h2>The showroom sales gap</h2>
+            <p>Hot tub dealerships &mdash; and similar showroom sales environments &mdash; typically have:</p>
+            <ul class="cs-bullets">
+                <li>High-value transactions ($5,000&ndash;$15,000+ per sale)</li>
+                <li>Consultative sales processes that take 20&ndash;60 minutes</li>
+                <li>Small teams (3&ndash;10 reps) where every rep&rsquo;s performance matters</li>
+                <li>No existing call recording infrastructure (unlike phone-based sales)</li>
+            </ul>
+            <p>One additional closed deal per month &mdash; worth $7,000+ &mdash; more than pays for Noetra for the entire team.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cs-section">
+    <div class="container">
+        <div class="cs-content">
+            <div class="cs-roi">
+                <div class="cs-roi-number">48x</div>
+                <div class="cs-roi-label">Return on investment in the first 30 days</div>
+                <p class="cs-roi-details">Noetra cost: $145/mo (5 reps &times; $29) &nbsp;|&nbsp; Value of one extra closed deal: $7,000+</p>
+                <p class="cs-roi-extra">Even one additional sale every other month delivers 24x ROI.</p>
+            </div>
+            <p class="cs-disclaimer">Case study based on the Hot Tub Superstore pilot program, February&ndash;March 2026. Results may vary by team and industry.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cs-cta">
+    <div class="container">
+        <h2>Ready to coach your team?</h2>
+        <p>Start your free 14-day trial. No minimums. No contracts.</p>
+        <a href="https://noetra-sales-trainer-fi3ma.ondigitalocean.app/signup" class="btn btn-primary btn-lg">Start Free Trial &rarr;</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">
+                    <span class="logo-mark">N</span>
+                    <span class="logo-text">Noetra</span>
+                </a>
+                <p>AI-powered sales training that actually works.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="roi-calculator.html">ROI Calculator</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:hello@gonoetra.ai">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Noetra. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+document.getElementById('nav-toggle')?.addEventListener('click', function() {
+    document.getElementById('nav-links')?.classList.toggle('active');
+});
+</script>
+</body>
+</html>
