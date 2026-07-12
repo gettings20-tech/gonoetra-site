@@ -967,3 +967,38 @@ section h2 {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ── Book a Demo section ── */
+.demo-section { padding: 96px 0; background: linear-gradient(180deg, rgba(67,97,238,.06), transparent); }
+.demo-form { max-width: 640px; margin: 40px auto 0; }
+.demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.demo-form input, .demo-form select, .demo-form textarea {
+  width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.05);
+  color: inherit; font: inherit; font-size: 15px;
+}
+.demo-form input:focus, .demo-form select:focus, .demo-form textarea:focus {
+  outline: none; border-color: #4361ee; background: rgba(67,97,238,.08);
+}
+.demo-form textarea { margin-bottom: 14px; resize: vertical; }
+.demo-form select { appearance: auto; }
+.demo-hp { position: absolute !important; left: -9999px !important; height: 0; width: 0; opacity: 0; }
+.btn-block { display: block; width: 100%; text-align: center; }
+.demo-status { margin-top: 14px; text-align: center; font-size: 15
+
+/* Book a Demo section */
+.demo-section{padding:96px 0;background:#0f1020;color:#fff;}
+.demo-section h2{color:#fff;}
+.demo-section .section-sub{color:#b9bcd0;}
+.demo-form{margin-top:32px;}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.demo-form input,.demo-form select,.demo-form textarea{width:100%;box-sizing:border-box;padding:14px 16px;border:1px solid #2a2c45;border-radius:10px;background:#191b30;color:#fff;font-size:15px;font-family:inherit;}
+.demo-form input::placeholder,.demo-form textarea::placeholder{color:#7d80a0;}
+.demo-form input:focus,.demo-form select:focus,.demo-form textarea:focus{outline:none;border-color:#4361ee;background:#1d1f38;}
+.demo-form textarea{margin-bottom:16px;resize:vertical;}
+.demo-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+.demo-status{margin-top:14px;text-align:center;font-size:14px;min-height:20px;}
+.demo-status-ok{color:#4ade80;}
+.demo-status-err{color:#f87171;}
+.btn-block{display:block;width:100%;text-align:center;}
+@media(max-width:640px){.demo-grid{grid-template-columns:1fr;}}
