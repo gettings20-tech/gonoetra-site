@@ -3,36 +3,8 @@
 (function () {
     'use strict';
 
-    // ---- Password Gate ----
-    const PASS = 'noetra2026';
-    const STORAGE_KEY = 'noetra_access';
-    const gate = document.getElementById('password-gate');
-    const site = document.getElementById('site');
-    const form = document.getElementById('gate-form');
-    const input = document.getElementById('gate-input');
-    const error = document.getElementById('gate-error');
-
-    function unlock() {
-        gate.classList.add('gate-hidden');
-        site.classList.remove('site-hidden');
-        localStorage.setItem(STORAGE_KEY, 'granted');
-        initSite();
-    }
-
-    if (localStorage.getItem(STORAGE_KEY) === 'granted') {
-        unlock();
-    }
-
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (input.value === PASS) {
-            unlock();
-        } else {
-            error.textContent = 'Incorrect access code. Try again.';
-            input.value = '';
-            input.focus();
-        }
-    });
+    // Site is public — initialize immediately on load.
+    initSite();
 
     // ---- Site Init ----
     function initSite() {

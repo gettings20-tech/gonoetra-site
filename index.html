@@ -10,25 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+    <script src="js/analytics.js"></script>
 </head>
 <body>
 
-<!-- Password Gate -->
-<div id="password-gate" class="gate">
-    <div class="gate-inner">
-        <div class="gate-logo">N</div>
-        <h2>Welcome to Noetra</h2>
-        <p>Enter the access code to continue.</p>
-        <form id="gate-form">
-            <input type="password" id="gate-input" placeholder="Access code" autocomplete="off" autofocus>
-            <button type="submit">Enter</button>
-        </form>
-        <p id="gate-error" class="gate-error"></p>
-    </div>
-</div>
-
 <!-- Main Site -->
-<div id="site" class="site-hidden">
+<div id="site">
 
 <!-- Navigation -->
 <nav class="nav" id="nav">
@@ -416,6 +403,7 @@
     }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok && d.ok }; }); })
       .then(function (res) {
         if (res.ok) {
+          if (window.noetraTrack) window.noetraTrack('lead_submit', { form: 'demo_contact' });
           f.querySelectorAll('input,select,textarea,button').forEach(function (el) { el.disabled = true; });
           btn.textContent = 'Request received ✓';
           status.textContent = "Got it — we'll reach out within one business day to schedule your demo.";

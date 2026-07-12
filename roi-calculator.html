@@ -262,25 +262,12 @@
             }
         }
     </style>
+    <script src="js/analytics.js"></script>
 </head>
 <body>
 
-<!-- Password Gate -->
-<div id="password-gate" class="gate">
-    <div class="gate-inner">
-        <div class="gate-logo">N</div>
-        <h2>Welcome to Noetra</h2>
-        <p>Enter the access code to continue.</p>
-        <form id="gate-form">
-            <input type="password" id="gate-input" placeholder="Access code" autocomplete="off" autofocus>
-            <button type="submit">Enter</button>
-        </form>
-        <p id="gate-error" class="gate-error"></p>
-    </div>
-</div>
-
 <!-- Main Site -->
-<div id="site" class="site-hidden">
+<div id="site">
 
 <!-- Navigation -->
 <nav class="nav" id="nav">
@@ -443,39 +430,12 @@
 </div><!-- /site -->
 
 <script>
-// Password Gate (same as main site)
+// Site is public — initialize immediately on load.
 (function() {
     'use strict';
-    var PASS = 'noetra2026';
-    var STORAGE_KEY = 'noetra_access';
-    var gate = document.getElementById('password-gate');
-    var site = document.getElementById('site');
-    var form = document.getElementById('gate-form');
-    var input = document.getElementById('gate-input');
-    var error = document.getElementById('gate-error');
 
-    function unlock() {
-        gate.classList.add('gate-hidden');
-        site.classList.remove('site-hidden');
-        localStorage.setItem(STORAGE_KEY, 'granted');
-        initNav();
-        initCalculator();
-    }
-
-    if (localStorage.getItem(STORAGE_KEY) === 'granted') {
-        unlock();
-    }
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (input.value === PASS) {
-            unlock();
-        } else {
-            error.textContent = 'Incorrect access code. Try again.';
-            input.value = '';
-            input.focus();
-        }
-    });
+    initNav();
+    initCalculator();
 
     function initNav() {
         var toggle = document.getElementById('nav-toggle');
