@@ -31,6 +31,7 @@
             <a href="case-study-hts.html">Case Study</a>
             <a href="roi-calculator.html">ROI Calculator</a>
             <a href="#faq">FAQ</a>
+            <a href="https://app.gonoetra.ai">Log In</a>
             <a href="#demo" class="btn btn-sm">Book a Demo</a>
         </div>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
@@ -392,7 +393,7 @@
       return;
     }
     btn.disabled = true; btn.textContent = 'Sending…';
-    fetch('https://noetra-sales-trainer-fi3ma.ondigitalocean.app/api/demo-request', {
+    fetch('https://app.gonoetra.ai/api/demo-request', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
