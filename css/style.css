@@ -984,7 +984,7 @@ section h2 {
 .demo-form select { appearance: auto; }
 .demo-hp { position: absolute !important; left: -9999px !important; height: 0; width: 0; opacity: 0; }
 .btn-block { display: block; width: 100%; text-align: center; }
-.demo-status { margin-top: 14px; text-align: center; font-size: 15
+.demo-status { margin-top: 14px; text-align: center; font-size: 15px; min-height: 20px; }
 
 /* Book a Demo section */
 .demo-section{padding:96px 0;background:#0f1020;color:#fff;}
