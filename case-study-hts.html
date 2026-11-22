@@ -7,11 +7,11 @@
     <meta name="description" content="How Hot Tub Superstore unified sales coaching across 3 locations in 30 days using Noetra.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
     <style>
-        .cs-hero { position: relative; padding: 140px 0 80px; text-align: center; overflow: hidden; }
+        .cs-hero { position: relative; padding: 64px 0 56px; text-align: center; overflow: hidden; }
         .cs-back { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; margin-bottom: 24px; transition: color var(--transition); }
         .cs-back:hover { color: var(--accent); }
         .cs-hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; color: var(--white); margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
@@ -68,26 +68,20 @@
 </head>
 <body>
 
-<nav class="nav" id="nav">
-    <div class="nav-inner container">
-        <a href="index.html" class="nav-logo">
-            <span class="logo-mark">N</span>
-            <span class="logo-text">Noetra</span>
-        </a>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html#how-it-works">How It Works</a>
-            <a href="index.html#how-it-works">How It Works</a>
-            <a href="index.html#system">The System</a>
-            <a href="case-study-hts.html">Case Study</a>
-            <a href="roi-calculator.html">ROI Calculator</a>
-            <a href="index.html#faq">FAQ</a>
-            <a href="index.html#book" class="btn btn-sm">Book a Call</a>
-        </div>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
+<header class="site-header">
+    <div class="wrap">
+        <a href="/" class="brand">Noetra<span>.</span></a>
+        <nav class="site-nav" id="site-nav">
+            <a href="how-it-works.html">How it works</a>
+            <a href="dealerships.html">Car dealerships</a>
+            <a href="showrooms.html">Showrooms</a>
+            <a href="about.html">About</a>
+            <a href="https://app.gonoetra.ai">Log in</a>
+            <a href="book-a-call.html" class="btn btn-sm">Book a call</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-</nav>
+</header>
 
 <section class="cs-hero">
     <div class="container">
@@ -227,37 +221,40 @@
     <div class="container">
         <h2>Ready to coach your team?</h2>
         <p>Book a 30-minute intro call. We&rsquo;ll walk through Noetra on real showroom recordings and talk about your stores.</p>
-        <a href="index.html#book" class="btn btn-primary btn-lg">Book a Call &rarr;</a>
+        <a href="book-a-call.html" class="btn btn-primary btn-lg">Book a Call &rarr;</a>
     </div>
 </section>
 
-<footer class="footer">
-    <div class="container">
+<footer class="site-footer">
+    <div class="wrap">
         <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="index.html" class="nav-logo">
-                    <span class="logo-mark">N</span>
-                    <span class="logo-text">Noetra</span>
-                </a>
-                <p>AI-powered sales training that actually works.</p>
+            <div>
+                <a href="/" class="brand">Noetra<span>.</span></a>
+                <address style="margin-top:14px">605 Mall Ring Circle, Suite 180<br>Henderson, Nevada 89014<br><a href="tel:+17027852022" style="display:inline">(702) 785-2022</a><br><a href="mailto:hello@gonoetra.ai" style="display:inline">hello@gonoetra.ai</a></address>
             </div>
-            <div class="footer-col">
+            <div>
                 <h4>Product</h4>
-                <a href="index.html#how-it-works">How It Works</a>
-                <a href="index.html#system">The System</a>
-                <a href="roi-calculator.html">ROI Calculator</a>
-                <a href="index.html#how-it-works">How It Works</a>
-                <a href="index.html#faq">FAQ</a>
+                <a href="how-it-works.html">How it works</a>
+                <a href="dealerships.html">Car dealerships</a>
+                <a href="showrooms.html">Showroom retailers</a>
+                <a href="roi-calculator.html">Revenue calculator</a>
+                <a href="case-study-hts.html">Hot Tub Superstore case study</a>
             </div>
-            <div class="footer-col">
+            <div>
                 <h4>Company</h4>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="mailto:hello@gonoetra.ai">Contact</a>
+                <a href="about.html">About</a>
+                <a href="book-a-call.html">Book a call</a>
+                <a href="https://app.gonoetra.ai">Log in</a>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy policy</a>
+                <a href="terms.html">Terms of service</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Noetra. All rights reserved.</p>
+            <span>&copy; 2026 Noetra. Henderson, Nevada.</span>
+            <span>Built by dealers, for dealers.</span>
         </div>
     </div>
 </footer>
@@ -267,5 +264,6 @@ document.getElementById('nav-toggle')?.addEventListener('click', function() {
     document.getElementById('nav-links')?.classList.toggle('active');
 });
 </script>
+<script src="js/main.js"></script>
 </body>
 </html>
