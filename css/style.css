@@ -1055,7 +1055,7 @@ section h2 {
     padding: 9px 16px; border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--text);
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
 }
-.who-chips span:first-child { border-color: rgba(67,97,238,0.5); background: rgba(67,97,238,0.12); color: var(--white); }
+.who-chips span:nth-child(-n+2) { border-color: rgba(67,97,238,0.5); background: rgba(67,97,238,0.12); color: var(--white); }
 .founder-card {
     background: rgba(67,97,238,0.08); border: 1px solid rgba(67,97,238,0.3);
     border-radius: var(--radius-lg); padding: 40px 36px; position: relative;
