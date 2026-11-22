@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROI Calculator — Noetra</title>
-    <meta name="description" content="Discover how much revenue Noetra can add to your sales team. Adjust the sliders to see your personalized ROI.">
+    <title>Revenue Calculator — Noetra</title>
+    <meta name="description" content="Estimate how much revenue a small lift in close rate is worth on your showroom floor. Adjust reps, deal size and deals per month.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* ROI Calculator Page Styles */
+        /* Revenue Calculator Page Styles */
         .roi-hero {
             padding: 140px 0 60px;
             text-align: center;
@@ -278,12 +278,12 @@
         </a>
         <div class="nav-links" id="nav-links">
             <a href="index.html#how-it-works">How It Works</a>
-            <a href="index.html#features">Features</a>
-            <a href="index.html#pricing">Pricing</a>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#system">The System</a>
             <a href="case-study-hts.html">Case Study</a>
-            <a href="roi-calculator.html">ROI Calculator</a>
+            <a href="roi-calculator.html">Revenue Calculator</a>
             <a href="index.html#faq">FAQ</a>
-            <a href="index.html#demo" class="btn btn-sm">Book a Demo</a>
+            <a href="index.html#book" class="btn btn-sm">Book a Call</a>
         </div>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -294,9 +294,9 @@
 <!-- Hero -->
 <section class="roi-hero">
     <div class="container">
-        <div class="section-label">ROI Calculator</div>
-        <h1>See What Noetra Can Do<br><span class="text-accent">For Your Bottom Line</span></h1>
-        <p>Adjust the sliders below to match your team. Watch your ROI update in real time.</p>
+        <div class="section-label">Revenue Calculator</div>
+        <h1>How much is left<br><span class="text-accent">on your sales floor?</span></h1>
+        <p>Most showrooms close a few more deals a month once every pitch is heard and coached. Set the sliders to your team and see what that lift is worth.</p>
     </div>
 </section>
 
@@ -346,38 +346,37 @@
 
         <!-- Results -->
         <div>
-            <div class="roi-section-title">Your ROI Potential</div>
+            <div class="roi-section-title">What a lift is worth</div>
 
             <div class="roi-main-display">
-                <h3>Monthly ROI</h3>
-                <div class="roi-main-number number-transition" id="main-roi">3,939%</div>
+                <h3>Additional Revenue Per Year</h3>
+                <div class="roi-main-number number-transition" id="main-roi">$480,000</div>
                 <p class="roi-main-sub">
-                    For every <strong>$1</strong> you spend on Noetra,<br>
-                    you get <strong id="roi-multiplier">$40</strong> back
+                    from <strong id="roi-multiplier">8</strong> more closed deals a month<br>
+                    at the improvement you picked
                 </p>
             </div>
 
             <div class="roi-metrics">
                 <div class="metric-card">
+                    <div class="metric-label">Deals/Month Today</div>
+                    <div class="metric-value number-transition" id="current-deals">80</div>
+                </div>
+                <div class="metric-card">
                     <div class="metric-label">Additional Deals/Month</div>
-                    <div class="metric-value number-transition" id="additional-deals">8</div>
+                    <div class="metric-value green number-transition" id="additional-deals">8</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-label">Additional Monthly Revenue</div>
-                    <div class="metric-value green number-transition" id="additional-revenue">$40,000</div>
+                    <div class="metric-label">Revenue/Month Today</div>
+                    <div class="metric-value number-transition" id="current-revenue">$400,000</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-label">Noetra Monthly Cost</div>
-                    <div class="metric-value orange number-transition" id="monthly-cost">$990</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Net Annual Gain</div>
-                    <div class="metric-value purple number-transition" id="annual-gain">$468,120</div>
+                    <div class="metric-label">Additional Revenue/Month</div>
+                    <div class="metric-value purple number-transition" id="additional-revenue">$40,000</div>
                 </div>
             </div>
-
             <div class="chart-card">
-                <h3>Monthly Cost vs Revenue Gain</h3>
+                <h3>Monthly Revenue: Today vs With the Lift</h3>
                 <canvas id="roi-chart" width="400" height="200"></canvas>
             </div>
         </div>
@@ -388,9 +387,9 @@
 <section class="roi-cta">
     <div class="container">
         <div class="roi-cta-box">
-            <h3>Ready to Transform Your Sales Team?</h3>
-            <p>Book a demo and see these results on your own sales floor.</p>
-            <a href="index.html#demo" class="btn btn-primary btn-lg">Book a Demo →</a>
+            <h3>Want to know what your floor actually sounds like?</h3>
+            <p>Book a 30-minute intro call. We&rsquo;ll walk through Noetra on real showroom recordings and talk about your stores.</p>
+            <a href="index.html#book" class="btn btn-primary btn-lg">Book a Call →</a>
         </div>
     </div>
 </section>
@@ -408,9 +407,9 @@
             </div>
             <div class="footer-col">
                 <h4>Product</h4>
-                <a href="index.html#features">Features</a>
-                <a href="index.html#pricing">Pricing</a>
-                <a href="roi-calculator.html">ROI Calculator</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#system">The System</a>
+                <a href="roi-calculator.html">Revenue Calculator</a>
                 <a href="index.html#how-it-works">How It Works</a>
                 <a href="index.html#faq">FAQ</a>
             </div>
@@ -457,7 +456,7 @@
     }
 })();
 
-// ROI Calculator Logic
+// Revenue Calculator Logic
 var animationId = null;
 var chart = null;
 
@@ -499,17 +498,16 @@ function calculateROI() {
 
     var additionalDeals = Math.round(reps * dealsPerRep * improvement);
     var additionalRevenue = additionalDeals * dealSize;
-    var monthlyCost = reps * 99;
-    var monthlyROI = ((additionalRevenue - monthlyCost) / monthlyCost) * 100;
-    var annualGain = (additionalRevenue * 12) - (monthlyCost * 12);
-    var roiMultiplier = Math.round(additionalRevenue / monthlyCost);
+    var currentDeals = reps * dealsPerRep;
+    var currentRevenue = currentDeals * dealSize;
+    var annualGain = additionalRevenue * 12;
 
+    animateNumber('current-deals', currentDeals);
     animateNumber('additional-deals', additionalDeals);
+    animateNumber('current-revenue', currentRevenue, true);
     animateNumber('additional-revenue', additionalRevenue, true);
-    animateNumber('monthly-cost', monthlyCost, true);
-    animateNumber('annual-gain', annualGain, true);
-    animateNumber('main-roi', monthlyROI, false, '%');
-    animateNumber('roi-multiplier', roiMultiplier, false, '', '$');
+    animateNumber('main-roi', annualGain, true);
+    animateNumber('roi-multiplier', additionalDeals);
 }
 
 function animateNumber(elementId, targetValue, isCurrency, suffix, prefix) {
@@ -572,7 +570,7 @@ function updateChart() {
 
     var additionalDeals = Math.round(reps * dealsPerRep * improvement);
     var additionalRevenue = additionalDeals * dealSize;
-    var monthlyCost = reps * 99;
+    var currentRevenue = reps * dealsPerRep * dealSize;
 
     var ctx = document.getElementById('roi-chart').getContext('2d');
     if (chart) chart.destroy();
@@ -580,11 +578,11 @@ function updateChart() {
     chart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Monthly Cost', 'Revenue Gain'],
+            labels: ['Today', 'With the lift'],
             datasets: [{
-                data: [monthlyCost, additionalRevenue],
-                backgroundColor: ['rgba(251, 146, 60, 0.8)', 'rgba(34, 197, 94, 0.8)'],
-                borderColor: ['rgb(251, 146, 60)', 'rgb(34, 197, 94)'],
+                data: [currentRevenue, currentRevenue + additionalRevenue],
+                backgroundColor: ['rgba(148, 163, 184, 0.6)', 'rgba(34, 197, 94, 0.8)'],
+                borderColor: ['rgb(148, 163, 184)', 'rgb(34, 197, 94)'],
                 borderWidth: 2,
                 borderRadius: 8,
                 borderSkipped: false
