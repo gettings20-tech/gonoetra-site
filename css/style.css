@@ -8,8 +8,8 @@
     --paper-2: #efe9dd;
     --paper-3: #e6dfd0;
     --ink: #161a24;
-    --ink-2: #3b4150;
-    --muted: #6b7080;
+    --ink-2: #2b3140;
+    --muted: #5f6472;
     --line: #d9d2c3;
     --navy: #142033;
     --navy-2: #1d2d47;
@@ -18,7 +18,7 @@
     --green: #2f6b4f;
     --red: #b4432f;
     --radius: 6px;
-    --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --serif: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --wrap: 1120px;
 
@@ -46,8 +46,8 @@ body {
     font-family: var(--sans);
     background: var(--paper);
     color: var(--ink-2);
-    line-height: 1.6;
-    font-size: 16.5px;
+    line-height: 1.65;
+    font-size: 17px;
 }
 img { max-width: 100%; display: block; }
 a { color: var(--navy); }
@@ -60,17 +60,17 @@ a { color: var(--navy); }
 
 h1, h2, h3, .serif {
     font-family: var(--serif);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--ink);
-    letter-spacing: -0.015em;
-    line-height: 1.12;
-    font-variation-settings: "opsz" 144;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    font-variation-settings: "opsz" 40;
 }
-h1 { font-size: clamp(40px, 5.6vw, 66px); }
-h2 { font-size: clamp(30px, 3.6vw, 44px); }
+h1 { font-size: clamp(36px, 4.8vw, 58px); }
+h2 { font-size: clamp(28px, 3.2vw, 40px); }
 h3 { font-size: 24px; line-height: 1.25; }
 p { max-width: 62ch; }
-.lede { font-size: 20px; line-height: 1.55; color: var(--ink-2); max-width: 56ch; }
+.lede { font-size: 20px; line-height: 1.6; color: var(--ink-2); max-width: 56ch; }
 .muted { color: var(--muted); }
 .eyebrow {
     display: inline-block;
@@ -87,7 +87,7 @@ p { max-width: 62ch; }
     border-bottom: 1px solid var(--line);
 }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 74px; }
-.brand { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+.brand { font-family: var(--serif); font-size: 27px; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
 .brand span { color: var(--brass); }
 .site-nav { display: flex; align-items: center; gap: 30px; }
 .site-nav a { color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 500; }
@@ -140,7 +140,7 @@ p { max-width: 62ch; }
     box-shadow: 0 24px 60px -30px rgba(20, 32, 51, 0.45), 0 2px 6px rgba(20, 32, 51, 0.06);
     background: #fff;
 }
-.figure figcaption { font-size: 13.5px; color: var(--muted); margin-top: 12px; }
+.figure figcaption { font-size: 14.5px; color: var(--muted); margin-top: 12px; }
 .figure-phone { max-width: 320px; }
 .figure-phone img { border-radius: 22px; border: 6px solid #1c2230; box-shadow: 0 30px 60px -30px rgba(20,32,51,0.6); }
 .figure-float { position: relative; }
@@ -169,22 +169,22 @@ p { max-width: 62ch; }
     display: block; font-family: var(--serif); font-size: 40px; color: var(--brass); line-height: 1; margin-bottom: 12px;
 }
 .steps-list h3 { font-size: 21px; margin-bottom: 8px; }
-.steps-list p { font-size: 15px; color: var(--ink-2); }
+.steps-list p { font-size: 16px; color: var(--ink-2); }
 
 /* ---- Definition rows (replaces checklists) ---- */
 .rows { border-top: 1px solid var(--line); }
 .row { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
-.row dt { font-weight: 600; color: var(--ink); font-size: 15px; }
-.row dd { color: var(--ink-2); font-size: 15.5px; }
+.row dt { font-weight: 600; color: var(--ink); font-size: 16px; }
+.row dd { color: var(--ink-2); font-size: 16px; }
 
 /* ---- Pull quote / letter ---- */
 .letter { background: #fffdf9; border: 1px solid var(--line); padding: 44px 48px; border-radius: 8px; }
-.letter p { font-family: var(--serif); font-size: 19px; line-height: 1.6; color: var(--ink); max-width: none; }
+.letter p { font-family: var(--serif); font-size: 20px; line-height: 1.65; font-weight: 500; color: var(--ink); max-width: none; }
 .letter p + p { margin-top: 18px; }
 .letter .sig { margin-top: 28px; font-family: var(--sans); }
 .letter .sig strong { display: block; color: var(--ink); font-size: 15px; }
 .letter .sig span { font-size: 14px; color: var(--muted); }
-.quote { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.4; color: var(--ink); max-width: 30ch; }
+.quote { font-family: var(--serif); font-size: clamp(22px, 2.3vw, 28px); line-height: 1.45; font-weight: 500; color: var(--ink); max-width: 30ch; }
 .quote cite { display: block; font-family: var(--sans); font-style: normal; font-size: 14px; color: var(--muted); margin-top: 16px; }
 
 /* ---- Fact strip ---- */
@@ -194,7 +194,7 @@ p { max-width: 62ch; }
 
 /* ---- Industry list ---- */
 .industries { columns: 2; column-gap: 40px; list-style: none; }
-.industries li { break-inside: avoid; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; color: var(--ink-2); }
+.industries li { break-inside: avoid; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 16.5px; color: var(--ink-2); }
 .industries li strong { color: var(--ink); font-weight: 600; }
 
 /* ---- FAQ (native details) ---- */
@@ -204,7 +204,7 @@ p { max-width: 62ch; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after { content: '+'; color: var(--brass); font-size: 22px; line-height: 1; }
 .faq details[open] summary::after { content: '–'; }
-.faq details p { padding: 0 0 22px; color: var(--ink-2); max-width: 70ch; }
+.faq details p { padding: 0 0 22px; color: var(--ink-2); max-width: 70ch; font-size: 16.5px; }
 
 /* ---- CTA band ---- */
 .band { background: var(--navy); color: #fff; padding: 72px 0; }
